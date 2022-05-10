@@ -1,0 +1,45 @@
+def fact(x):
+    if x ==0:
+        return 1
+    elif x<0:
+        return -x * -(fact(x+1)) #For negative integers
+    else:
+        print(x," x ",end = " ")
+        return x * fact(x-1)
+    
+def fib(terms):
+    if terms ==1:
+        return [0]
+    else:
+        series = [0,1]
+        for i in range(1,terms-1):
+            series.append(series[i]+series[i-1])
+        return series
+
+def main():
+    print("\n**********PROGRAM TO FIND FIBONACCI SEQUENCE AND THE FACTORIAL OF A GIVEN NUMBER*********** ")
+    num =  int(input("Enter a number: "))
+    if num>0: #both factorial and fibonacci sequences are called.
+        print("-----------------------------------------------------------------------------------------------")
+        print("The factorial of", num, "is ", end = " ")
+        print(f"=", fact(num))
+        print(f"The fibonacci sequence of first {num} terms is: ",fib(num))
+        print("-----------------------------------------------------------------------------------------------")
+    else: #Only factorial is called for numbers less than or equal to 0
+        print("-----------------------------------------------------------------------------------------------")
+        print("The factorial of", num, "is ", end = " ")
+        print(f"=", fact(num))
+        print("Invalid number of terms for fibonacci sequence!!")
+        print("-----------------------------------------------------------------------------------------------")
+    loop()
+    
+def loop():
+    choice = input("\nDo you wish to continue(yes/no)?: ").lower()
+    if choice =='yes':
+        main()
+    else:
+        print("Thank You:")
+        
+        
+
+main()
