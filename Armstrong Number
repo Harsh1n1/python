@@ -1,0 +1,46 @@
+def main():
+    print("****PROGRAM TO CHECK IF A NUMBER IS ARMSTRONG NUMBER OR NOT***")
+    print()
+    print(("Armstrong Number is a number that is sum of its own digits each raised to the power of the number of digits\n"))
+    dig=0
+    result=0
+    
+    num = int(input("Enter a number: "))
+    if num<0:
+        print("Enter positive integers!!")
+        check()
+    num1 = num #Assigning the value of input to num1 and temp, so that original values doesn't change. 
+    temp = num
+    a = [] 
+    while num!=0: #First while to count the number of digits
+        num = (num//10)
+        dig=dig+1; 
+        
+    while num1!=0: #Second while loop for checking the condition of armstrong numbers
+        num=num1%10
+        result=result+pow(num,dig)
+
+        num1=num1//10
+        print(num,"**",dig,"=",num**dig) 
+        a.append(num**dig) #To append the values so that sum of those digits could be found.
+
+
+
+    if temp==result:
+        print("\nThe number of digits in", temp,"is: ", dig)
+        print("The sum of its own digits of ",temp,"each raised to the power of",dig,"is also ",sum(a))
+        print(temp, "is an Armstrong Number")
+    else:
+        print("The number of digits in", temp,"is: ", dig)
+        print("The sum of its own digits of ",temp,"each raised to the power of",dig,"is ",sum(a),",therefore ", end ="" )
+        print(temp," is not an Armstrong Number")
+    check()
+
+
+def check():
+    print("**************************************************************************************")
+    answer = input("\nDo you wish to check another number?(Yes/No) ").lower()
+    if answer == "yes":
+        main()
+    else:
+        print("Thank You")
