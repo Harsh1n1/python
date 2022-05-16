@@ -1,0 +1,35 @@
+print("*****Largest and Second Largest Element*****\n")
+l = []
+print("Enter the elements: ") 
+i =1
+while i <=3:
+    elements = float(input(">:"))
+    l.append(elements)
+    i = i+1
+print("The items in list are: ", l)
+
+largest = max(l[0], l[1])
+sec_largest = min(l[0], l[1])
+ele = l[0]
+
+
+check =True # To check if all elements are in list are equal
+for i in l:
+    if ele!=i:
+        check =False
+        break
+if check==True:
+    print("All Elements are Equal")
+
+else:
+    for i in range(2, len(l)):
+        if l[i]>=largest:
+            sec_largest = largest
+            largest = l[i]
+
+
+    for i in range(2, len(l)):
+        if l[i]>=sec_largest and largest != l[i] :
+            sec_largest =l[i]
+    print("\n{} is the largest number.".format(largest))
+    print("{} is the second largest number.".format(sec_largest))
